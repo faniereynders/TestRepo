@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-md-4">
+        <div card class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="panel-title">Budget</h3>
+                <span slider on-stop-slide="vm.getFacets()" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip" ng-model="vm.criteria.budget"
+                      step="25" min="100" max="3000" range="true"></span>
+                <div class="row">
+                    <div class="col-md-6">€ {{vm.criteria.budget[0]}}</div>
+                    <div right class="col-md-6">€ {{vm.criteria.budget[1]}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div card class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="panel-title">Period</h3>
+                <span slider ng-model="vm.criteria.period" step="3" min="3" max="72"></span>
+                <div class="row">
+                    <div class="col-md-12">{{vm.criteria.period}} months</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div card class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="panel-title">Distance</h3>
+                <span slider ng-model="vm.criteria.distance" step="5000" min="10000" max="70000"></span>
+                <div class="row">
+                    <div class="col-md-12">{{vm.criteria.distance}} km per year</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="vm.moreFilters" />More filters
+            </label>
+        </div>
+        <div ng-show="vm.moreFilters" card class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3 class="panel-title">Makes</h3>
+                        <div facet-item class="col-md-3" ng-repeat="make in vm.facets.makes | orderBy: '-count'">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checklist-change="vm.getFacets('makes')" checklist-value="make.id" checklist-model="vm.selectedMakes" />{{make.description}} ({{make.count}})
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h3 class="panel-title">Fuel types</h3>
+                        <div facet-item class="col-md-6" ng-repeat="fuelType in vm.facets.fuelTypes">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" checklist-change="vm.getFacets('fuelTypes')" checklist-value="fuelType.id" checklist-model="vm.selectedFuelTypes" />{{fuelType.description}} ({{fuelType.count}})
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div right class="col-md-12">
+        <button ng-click="vm.showResults()" class="btn btn-lg btn-primary">Show {{vm.totalResultsString()}}<i space class="fa fa-chevron-right"></i></button>
+    </div>
+</div>

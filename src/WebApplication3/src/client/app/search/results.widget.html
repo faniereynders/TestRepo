@@ -1,0 +1,25 @@
+﻿<div class="row">
+    <div results class="col-md-12">
+        <div result-item class="media results-animation at-repeat-flip-in-horizontal at-repeat-flip-out-horizontal" ng-repeat="result in vm.results">
+            <div class="thumb pull-left media-object at-repeat-fade-in">
+                <img ng-src="{{result.imageUri}}" />
+            </div>
+            <div class="media-body">
+                <div card class="panel panel-default">
+                    <div class="panel-heading result-title">{{result.makeName}} {{result.model}}</div>
+                    <div class="panel-body">
+                        <ul class="row list-group" ng-repeat="item in result.items">
+                            <li class="list-group-item" ng-class="{'item-hover':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false">
+                                <span class="col-md-5">{{ item.description }} {{item.doorsCount}}-door {{ item.bodyType }}</span>
+                                <span class="col-md-1">{{ item.year }}</span>
+                                <span class="col-md-2">{{ item.fuelType }}</span>
+                                <strong>{{ item.monthlyCost | currency:"€ ":0}} pm</strong>
+                                <span class="pull-right"><button ng-click="vm.toggleFavorite(item)" class="btn btn-xs btn-link"><i class="fa fa-star favorite-item" ng-class="{'is-favorite':vm.isFavorite(item.id)}"></i></button></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

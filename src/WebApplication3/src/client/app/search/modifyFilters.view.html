@@ -1,0 +1,15 @@
+<md-dialog layout-padding flex>
+	<h3>{{vm.title}}</h3>
+	<md-dialog-content  class="sticky-container">
+	<div class="col-md-4 col-lg-3" ng-repeat="facet in vm.facets.makes">
+		<md-checkbox ng-change="vm.getResults()" inline ng-model="facet.selected" aria-label="{{facet.description}}" class="md-icon-button md-mini">
+		{{ facet.description }} ({{ facet.count }})
+			
+		</md-checkbox>
+		</div>
+		<md-button ng-click="vm.hideDialog()" class="md-primary">
+    Close
+    </md-button>
+	</md-dialog-content>
+	
+</md-dialog>

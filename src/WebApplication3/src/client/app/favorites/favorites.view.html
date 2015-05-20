@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td>
+
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        <div class="thumb">
+                            <img ng-src="{{item.imageUri}}" />
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Make &amp; Model
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{item.make.name}} {{item.model}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Implementation
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{item.description}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Consumer price
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{item.cataloguePrice | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td>
+                        Residual value
+                    </td>
+                </tr>-->
+                <tr>
+                    <td>
+                        BPM
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{item.bpm | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Monthly costs
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Installment
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{ item.monthlyCosts.installment | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Insurance
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{ item.monthlyCosts.insurance | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fuel
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{ item.monthlyCosts.fuel | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Maintenance
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{ item.monthlyCosts.maintenance | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Road tax
+                    </td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        {{ item.monthlyCosts.roadTax | currency:"€ ":0}}
+                    </td>
+                </tr>
+                <tr>
+                    <td><string>Total per month</string></td>
+                    <td ng-repeat="item in vm.favorites" class="favorite-table-item">
+                        <strong>{{ item.monthlyCosts.total | currency:"€ ":0}}</strong>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

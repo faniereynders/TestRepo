@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+        <div card class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-default btn-lg"><i class="fa fa-sliders"></i></button>
+                        <button class="btn btn-default btn-lg"><i class="fa fa-filter"></i></button>
+                    </div>
+                    <div class="col-md-2">
+                        <h3 class="panel-title">Budget</h3>
+                        <h6>€ {{vm.criteria.budgetFrom}} to € {{vm.criteria.budgetTo}}</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="panel-title">Period</h4>
+                        <h6>{{vm.criteria.period}} months</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="panel-title">Distance</h4>
+                        <h6>{{vm.criteria.distance}} kilometers per year</h6>
+                    </div>
+                    <div right class="col-md-4">
+
+                        <button id="btnFavorites" ng-click="vm.goToFavorites()" class="btn btn-primary btn-lg"><i class="fa fa-star"></i><span space>Favorites</span><span ng-show="vm.favorites.length > 0" space class="badge favorite-count">{{vm.favorites.length}}</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div ng-include="'app/search/results-filters.widget.html'"></div>
+
+    </div>
+
+    <div ng-show="!vm.isBusy" class="col-md-10">
+        <div ng-include="'app/search/pager.widget.html'"></div>
+        <div ng-include="'app/search/results.widget.html'"></div>
+        <div ng-include="'app/search/pager.widget.html'"></div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿<div card class="panel panel-default">
+    <div class="panel-body">
+        <h4 class="panel-title"><i class="fa fa-filter"></i> Makes</h4>
+
+        <label facet-item class="checkbox facet-item" ng-repeat="make in vm.facets.makes | filter: vm.makesFacetFilter | orderBy: '-count'">
+            <input type="checkbox" checklist-change="vm.updateFacets('makes')" checklist-value="make.id" checklist-model="vm.selectedMakes" />{{make.description}} ({{make.count}})
+        </label>
+        <button ng-show="vm.makesExpandable" class="btn btn-block btn-default btn-xs expandable-btn" ng-click="vm.toggleMakesFilter()" data-toggle="button" aria-pressed="false">
+            <i class="fa" ng-class="vm.expanderClass(vm.showAllFacets.makes, vm.selectedMakes)"></i>
+        </button>
+
+        <h4 class="panel-title"><i class="fa fa-filter"></i> Fuel types</h4>
+        <label facet-item class="checkbox facet-item" ng-repeat="fuelType in vm.facets.fuelTypes | filter: vm.fuelTypesFacetFilter | orderBy: '-count'">
+            <input type="checkbox" checklist-change="vm.updateFacets('fuelTypes')" checklist-value="fuelType.id" checklist-model="vm.selectedFuelTypes" />{{fuelType.description}} ({{fuelType.count}})
+        </label>
+        <button ng-show="vm.fuelTypesExpandable" class="btn btn-block btn-default btn-xs expandable-btn" ng-click="vm.toggleFuelTypesFilter()" data-toggle="button" aria-pressed="false">
+            <i class="fa" ng-class="vm.expanderClass(vm.showAllFacets.fuelTypes, vm.selectedFuelTypes)"></i>
+        </button>
+    </div>
+</div>
